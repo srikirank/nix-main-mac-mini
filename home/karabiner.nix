@@ -51,6 +51,40 @@
               manipulators = [
                 {
                   type = "basic";
+                  from = {
+                    key_code = "left_option";
+                    modifiers = {
+                      mandatory = ["left_command"];
+                    };
+                  };
+                  to = [{ 
+                    key_code = "left_option";
+                    modifiers = ["left_command"];
+                  }];
+                  conditions = [{
+                    type = "device_if";
+                    identifiers = [{ vendor_id = 1118; }];
+                  }];
+                }
+                {
+                  type = "basic";
+                  from = {
+                    key_code = "left_command";
+                    modifiers = {
+                      mandatory = ["left_option"];
+                    };
+                  };
+                  to = [{ 
+                    key_code = "left_command";
+                    modifiers = ["left_option"];
+                  }];
+                  conditions = [{
+                    type = "device_if";
+                    identifiers = [{ vendor_id = 1118; }];
+                  }];
+                }
+                {
+                  type = "basic";
                   from.key_code = "left_option";
                   to = [{ key_code = "left_command"; }];
                   conditions = [{
