@@ -1,5 +1,8 @@
 { pkgs, config, inputs, ... }: {
 
+  # Import login items configuration
+  imports = [ ../../system/login-items.nix ];
+
   # Set the home directory for the user.
   users.users.sri.home = "/Users/sri";
 
