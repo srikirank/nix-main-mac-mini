@@ -4,6 +4,19 @@
   enable = true;
 
   extraConfig = ''
+    # Auto-switch theme based on macOS appearance
+    def switch-theme [] {
+      let appearance = (defaults read -g AppleInterfaceStyle | complete | get stdout | str trim)
+      if $appearance == "Dark" {
+        $env.STARSHIP_CONFIG = ($env.HOME | path join ".config/starship-dark.toml")
+      } else {
+        $env.STARSHIP_CONFIG = ($env.HOME | path join ".config/starship-light.toml")
+      }
+    }
+    
+    # Switch theme on startup
+    switch-theme
+
     let carapace_completer = {|spans|
       carapace $spans.0 nushell ...$spans | from json
     }

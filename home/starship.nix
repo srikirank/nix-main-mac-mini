@@ -5,9 +5,29 @@
   settings = {
     add_newline = true;
     command_timeout = 10000;
-    palette = "rosepine";
+    palette = "adaptive";
 
     palettes.rosepine = {
+      overlay = "#26233a";
+      love = "#eb6f92";
+      gold = "#f6c177";
+      rose = "#ebbcba";
+      pine = "#31748f";
+      foam = "#9ccfd8";
+      iris = "#c4a7e7";
+    };
+
+    palettes.rosepine_dawn = {
+      overlay = "#f2e9e1";
+      love = "#b4637a";
+      gold = "#ea9d34";
+      rose = "#d7827e";
+      pine = "#286983";
+      foam = "#56949f";
+      iris = "#907aa9";
+    };
+
+    palettes.adaptive = {
       overlay = "#26233a";
       love = "#eb6f92";
       gold = "#f6c177";

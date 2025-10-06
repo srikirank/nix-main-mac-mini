@@ -47,37 +47,24 @@
               ];
             }
             {
-              description = "Microsoft Keyboard Option ↔ Command Swap";
+              description = "Microsoft Keyboard Option ↔ Command Swap (Simultaneous)";
               manipulators = [
                 {
                   type = "basic";
                   from = {
-                    key_code = "left_option";
-                    modifiers = {
-                      mandatory = ["left_command"];
+                    simultaneous = [
+                      { key_code = "left_option"; }
+                      { key_code = "left_command"; }
+                    ];
+                    simultaneous_options = {
+                      detect_key_down_uninterruptedly = true;
+                      key_down_order = "insensitive";
+                      key_up_order = "insensitive";
                     };
                   };
-                  to = [{ 
-                    key_code = "left_option";
-                    modifiers = ["left_command"];
-                  }];
-                  conditions = [{
-                    type = "device_if";
-                    identifiers = [{ vendor_id = 1118; }];
-                  }];
-                }
-                {
-                  type = "basic";
-                  from = {
-                    key_code = "left_command";
-                    modifiers = {
-                      mandatory = ["left_option"];
-                    };
-                  };
-                  to = [{ 
-                    key_code = "left_command";
-                    modifiers = ["left_option"];
-                  }];
+                  to = [
+                    { key_code = "left_command"; modifiers = ["left_option"]; }
+                  ];
                   conditions = [{
                     type = "device_if";
                     identifiers = [{ vendor_id = 1118; }];
@@ -94,26 +81,8 @@
                 }
                 {
                   type = "basic";
-                  from.key_code = "right_option";
-                  to = [{ key_code = "right_command"; }];
-                  conditions = [{
-                    type = "device_if";
-                    identifiers = [{ vendor_id = 1118; }];
-                  }];
-                }
-                {
-                  type = "basic";
                   from.key_code = "left_command";
                   to = [{ key_code = "left_option"; }];
-                  conditions = [{
-                    type = "device_if";
-                    identifiers = [{ vendor_id = 1118; }];
-                  }];
-                }
-                {
-                  type = "basic";
-                  from.key_code = "right_command";
-                  to = [{ key_code = "right_option"; }];
                   conditions = [{
                     type = "device_if";
                     identifiers = [{ vendor_id = 1118; }];

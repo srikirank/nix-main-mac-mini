@@ -85,6 +85,22 @@
         echo "Creating LaunchBar iCloud symlink..."
         sudo -u sri ln -sf "$ICLOUD_LAUNCHBAR" "$LAUNCHBAR_SUPPORT"
       fi
+      
+      # Set screenshot format to JPG
+      echo "Setting screenshot format to JPG..."
+      sudo -u sri defaults write com.apple.screencapture type jpg
+      
+      echo "Configuring Finder sidebar..."
+      # Add sidebar items using mysides
+      if command -v mysides >/dev/null 2>&1; then
+        sudo -u sri mysides add ~/Documents 2>/dev/null || true
+        sudo -u sri mysides add ~/Downloads 2>/dev/null || true  
+        sudo -u sri mysides add ~/Movies 2>/dev/null || true
+        sudo -u sri mysides add ~ 2>/dev/null || true
+        echo "Added sidebar items with mysides"
+      else
+        echo "mysides not found - install with: brew install mysides"
+      fi
     '';
   };
   

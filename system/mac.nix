@@ -34,7 +34,7 @@
     NSAutomaticPeriodSubstitutionEnabled = true;    # Double-space period (default: varies)
 
     # FILES & DOCUMENTS
-    AppleShowAllExtensions = true;                   # Show file extensions (default: false)
+    AppleShowAllExtensions = false;                   # Show file extensions (default: false)
     AppleShowAllFiles = true;                        # Show hidden files (default: false)
     NSDocumentSaveNewDocumentsToCloud = false;      # Save to iCloud (default: true)
 
@@ -47,6 +47,8 @@
     # SCROLLING & ANIMATION
     AppleShowScrollBars = "Automatic";              # Scroll bar visibility (default: varies)
     NSScrollAnimationEnabled = true;                # Smooth scrolling (default: varies)
+    NSWindowResizeTime = 0.001;                     # Window resize animation speed (default: 0.2)
+    NSAutomaticWindowAnimationsEnabled = false;     # Disable window animations (default: true)
 
     # SOUND
     "com.apple.sound.beep.feedback" = 1;           # Sound feedback (default: varies)
@@ -89,18 +91,16 @@
     show-recents = false;                          # Show recent apps (default: true)
     show-process-indicators = true;                # Show app indicators (default: true)
     minimize-to-application = true;                # Minimize to app icon (default: false)
-    launchanim = true;                             # Launch animation (default: true)
-    mineffect = "genie";                           # Minimize effect (default: "genie")
+    launchanim = false;                            # Disable launch animation (default: true)
+    mineffect = "scale";                           # Minimize effect (default: "genie")
 
     # DOCK CONTENTS - Your complete app list
     persistent-apps = [
-      "/System/Applications/Launchpad.app"
       "/Applications/Ghostty.app"
       "/Applications/Bear.app"
       "/Applications/Copilot.app"
-      "/Applications/Visual Studio Code.app"
+      "/Applications/Nix Apps/Visual Studio Code.app"
       "/Applications/Sublime Text.app"
-      "/Applications/Gifox.localized/Gifox.app"
       "/Applications/Hoppscotch.app"
       "/System/Applications/Mail.app"
       "/System/Applications/Messages.app"
@@ -110,20 +110,20 @@
       "/Applications/Raycast.app"
       "/System/Cryptexes/App/System/Applications/Safari.app"
       "/System/Applications/System Settings.app"
-      "/Applications/TradingView.app"
-
-      # Web Apps (Safari-created)
-      "/Users/sri/Applications/RUAK Investments.app"
-      "/Users/sri/Applications/Real Estate Investing.app"
-      "/Users/sri/Applications/Stock Sales - Tracking 2.app"
-      "/Users/sri/Applications/AI Studio.app"
-      "/Users/sri/Applications/ChatGPT- Diagrams - Show Me.app"
-      "/Users/sri/Applications/Udemy - Docker Mastery with Kubernetes + Swarm.app"
-      "/Users/sri/Applications/Udemy - Mastering Visual Studio Code 2024.app"
-      "/Users/sri/Applications/Funds and Allocation.app"
-      "/Users/sri/Applications/TMobile Billing.app"
+#
+#      # Web Apps (Safari-created)
+#      "/Users/sri/Applications/RUAK Investments.app"
+#      "/Users/sri/Applications/Real Estate Investing.app"
+#      "/Users/sri/Applications/Stock Sales - Tracking 2.app"
+#      "/Users/sri/Applications/AI Studio.app"
+#      "/Users/sri/Applications/ChatGPT- Diagrams - Show Me.app"
+#      "/Users/sri/Applications/Udemy - Docker Mastery with Kubernetes + Swarm.app"
+#      "/Users/sri/Applications/Udemy - Mastering Visual Studio Code 2024.app"
+#      "/Users/sri/Applications/Funds and Allocation.app"
+#      "/Users/sri/Applications/TMobile Billing.app"
     ];
     persistent-others = [];                         # No folders in dock
+    expose-animation-duration = 0.1;                # Mission Control animation speed (default: 0.75)
   };
 
   # ============================================================================
@@ -203,6 +203,18 @@
   # CUSTOM USER PREFERENCES
   # ============================================================================
   CustomUserPreferences = {
+    # FINDER ANIMATIONS
+    "com.apple.finder" = {
+      DisableAllAnimations = true;                 # Disable Finder animations
+      FXEnableSlowAnimation = false;               # Disable slow animations
+    };
+
+    # QUICK LOOK ANIMATIONS
+    "com.apple.QuickLookUIService" = {
+      QLEnableTextSelection = true;                # Enable text selection in Quick Look
+      QLPreviewMinimumDelay = 0;                   # Remove Quick Look delay
+    };
+
     # NOTIFICATION CENTER WIDGETS
     "com.apple.notificationcenterui" = {
       TodayView = {
