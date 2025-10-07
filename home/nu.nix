@@ -88,6 +88,7 @@
       "/run/current-system/sw/bin"
       $"/etc/profiles/per-user/($env.USER)/bin"
       "/opt/homebrew/bin"
+      "/opt/homebrew/opt/openjdk/bin"
       $"($env.HOME)/.local/bin"
       $"($env.HOME)/.local/share/nvim/mason/bin"
     ] | append ($env.PATH | default [] | split row (char esep)) | uniq)
@@ -158,5 +159,6 @@
     CARAPACE_BRIDGES = "argcomplete,inshellisense,cobra,click,urfavecli,yargs,kingpin,carapace";
     CARAPACE_MATCH = 1;
     SKIM_DEFAULT_OPTIONS = "-i --ansi --delimiter ':' --cmd-prompt ' ' --preview 'bat --style=numbers,header,grid,changes --color=always --highlight-line {2} {1}' --preview-window +{2}-/2 -c \"rg {} --line-number --colors 'path:style:intense' --colors 'match:style:intense' --colors 'line:style:intense' --smart-case --hidden --color=always --glob '!.git'\"";
+    JAVA_HOME = "/opt/homebrew/opt/openjdk";
   };
 }

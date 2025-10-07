@@ -4,6 +4,7 @@
   onActivation.upgrade = true;
   onActivation.autoUpdate = true;
   brews = [
+    "openjdk"
     "swagger-codegen"
     "pueue"
   ];

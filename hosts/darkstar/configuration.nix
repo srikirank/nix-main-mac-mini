@@ -1,8 +1,5 @@
 { pkgs, config, inputs, ... }: {
 
-  # Import login items configuration
-  imports = [ ../../system/login-items.nix ];
-
   # Set the home directory for the user.
   users.users.sri.home = "/Users/sri";
 
@@ -93,17 +90,29 @@
       echo "Setting screenshot format to JPG..."
       sudo -u sri defaults write com.apple.screencapture type jpg
       
-      echo "Configuring Finder sidebar..."
-      # Add sidebar items using mysides
-      if command -v mysides >/dev/null 2>&1; then
-        sudo -u sri mysides add ~/Documents 2>/dev/null || true
-        sudo -u sri mysides add ~/Downloads 2>/dev/null || true  
-        sudo -u sri mysides add ~/Movies 2>/dev/null || true
-        sudo -u sri mysides add ~ 2>/dev/null || true
-        echo "Added sidebar items with mysides"
-      else
-        echo "mysides not found - install with: brew install mysides"
-      fi
+      # Configure login items
+      echo "=== Configuring login items ==="
+      
+      # Clear all existing login items first
+      sudo -u sri osascript -e 'tell application "System Events" to delete login items 1 thru -1'
+      
+      LOGIN_ITEMS=(
+        "/Applications/Raycast.app|true"
+        "/Applications/1Password 7.app|true"
+        "/Applications/Bartender 6.app|true"
+        "/Applications/LaunchBar.app|true"
+        "/System/Volumes/Data/Applications/Things3.app|true"
+      )
+      
+      for item in "''${LOGIN_ITEMS[@]}"; do
+        app_path=$(echo "$item" | cut -d'|' -f1)
+        hidden_flag=$(echo "$item" | cut -d'|' -f2)
+        
+        echo "  Adding: $app_path (hidden: $hidden_flag)"
+        sudo -u sri osascript -e "tell application \"System Events\" to make login item at end with properties {path:\"$app_path\", hidden:$hidden_flag}" 2>/dev/null || echo "    ⚠️  Failed to add: $app_path"
+      done
+      
+      echo "=== Login items configuration complete ==="
     '';
   };
   
