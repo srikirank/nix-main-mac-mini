@@ -63,7 +63,7 @@
     # Comment out potentially problematic paid apps
     # "craft" = 1487937127;
     # "leaf" = 576338668;
-    # "perplexity" = 6714467650;
+    "perplexity" = 6714467650;
     # "rakuten" = 1451893560;
     # "ray" = 6738274497;
     # "surfshark" = 1437809329;

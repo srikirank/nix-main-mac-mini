@@ -33,7 +33,16 @@
   };
 
   outputs = inputs@{ self, nix-darwin, nixpkgs, nix-homebrew, home-manager, rose-btop, rose-yazi, rose-bat, k9s-repo }:
+    let
+      system = "aarch64-darwin";
+      pkgs = nixpkgs.legacyPackages.${system};
+    in
     {
+      # Custom packages
+      packages.${system} = {
+        time-of-day-wallpapers = pkgs.callPackage ./pkgs/wallpapers.nix {};
+      };
+
       # Build darwin flake using:
       # $ darwin-rebuild build --flake .#darkstar
       darwinConfigurations."darkstar" = nix-darwin.lib.darwinSystem {
