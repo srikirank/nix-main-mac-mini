@@ -61,7 +61,6 @@
   netcat-gnu
   nushell
   oh-my-posh
-  ollama
   openssh
   postgresql
   protobuf

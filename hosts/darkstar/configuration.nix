@@ -89,7 +89,11 @@
       # Set screenshot format to JPG
       echo "Setting screenshot format to JPG..."
       sudo -u sri defaults write com.apple.screencapture type jpg
-      
+
+      # Pull Ollama Models
+      /opt/homebrew/bin/ollama pull qwen3:30b-a3b
+      /opt/homebrew/bin/ollama pull nomic-embed-text
+
       # Configure login items
       echo "=== Configuring login items ==="
       
