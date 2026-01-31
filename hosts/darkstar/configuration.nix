@@ -91,8 +91,54 @@
       sudo -u sri defaults write com.apple.screencapture type jpg
 
       # Pull Ollama Models
-      /opt/homebrew/bin/ollama pull qwen3:30b-a3b
-      /opt/homebrew/bin/ollama pull nomic-embed-text
+      OLLAMA_BIN="/opt/homebrew/bin/ollama"
+      $OLLAMA_BIN pull qwen3:30b-a3b    # Your main model
+      $OLLAMA_BIN pull qwq:32b          # For deep reasoning/complex bug fixing
+      $OLLAMA_BIN pull qwen3:4b         # For lightning-fast autocomplete
+      $OLLAMA_BIN pull nomic-embed-text # Codebase indexing
+      # To force a restart of the agent:
+      # Use a variable to avoid SC2046 and ensure we target the real user, not root
+      TARGET_USER="sri"
+      USER_ID=$(id -u "$TARGET_USER")
+      PLIST="/Users/$TARGET_USER/Library/LaunchAgents/org.nixos.ollama.plist"
+
+      echo "Refining AI Infrastructure for user $TARGET_USER (ID: $USER_ID)..."
+
+      # Check if the service is already loaded in the GUI domain
+      if /bin/launchctl print "gui/$USER_ID/org.nixos.ollama" >/dev/null 2>&1; then
+        echo "Service exists. Kickstarting to reload environment (64k context)..."
+        /bin/launchctl kickstart -k "gui/$USER_ID/org.nixos.ollama"
+      else
+        echo "Service not found. Bootstrapping fresh..."
+        /bin/launchctl bootstrap "gui/$USER_ID" "$PLIST"
+      fi
+
+      echo "Checking Ollama models..."
+      # Ensure Ollama is running (or start it briefly) before running these
+      # We use 'ollama list' to check for existing models
+
+      # Function to bake a Pro model
+      bake_model() {
+        local base=$1
+        local target=$2
+        if ! $OLLAMA_BIN list | grep -q "$target"; then
+          echo "Baking $target with 64k context..."
+          printf "FROM %s\nPARAMETER num_ctx 65536" "$base" > /tmp/Modelfile
+          $OLLAMA_BIN create "$target" -f /tmp/Modelfile
+          rm /tmp/Modelfile
+        fi
+      }
+
+      # Bake your principal-engineer-grade models
+      bake_model "qwen3:30b-a3b" "qwen3:pro"
+      bake_model "qwq:32b" "qwq:pro"
+
+      # Install Mise Tools
+      /run/current-system/sw/bin/mise bin-paths
+      /run/current-system/sw/bin/mise use --global go@latest
+      /run/current-system/sw/bin/mise use --global python@latest
+      /run/current-system/sw/bin/mise use --global node@latest
+      /run/current-system/sw/bin/mise use --global java@21
 
       # Configure login items
       echo "=== Configuring login items ==="

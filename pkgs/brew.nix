@@ -11,6 +11,8 @@
     "telnet"
     "maven"
     "gemini-cli"
+    "opencode"
+    "ollama"
   ];
   casks = [
     # Working casks
@@ -43,9 +45,7 @@
     "mongodb-realm-studio"
     "pdf-expert"
     "sf-symbols"
-    "ollama-app"
     "the-unarchiver"
-    "codex"
 
     # Development
     "hoppscotch"
