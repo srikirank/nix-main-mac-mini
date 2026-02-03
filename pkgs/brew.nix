@@ -13,6 +13,7 @@
     "gemini-cli"
     "opencode"
     "ollama"
+    "docker"
   ];
   casks = [
     # Working casks

@@ -11,8 +11,9 @@ let
 in
 {
   # This writes the file to ~/.config/opencode/config.json
-  xdg.configFile."opencode/config.json".text = builtins.toJSON {
+  home.file.".config/opencode/config.json".text = builtins.toJSON {
     "$schema" = "https://opencode.ai/config.json";
+    instructions = ["AGENTS.md"];
 
     # FIXED: "agents" -> "agent" (Singular key to fix the schema error)
     agent = {
@@ -57,6 +58,7 @@ in
           "qwen3:pro" = { name = "Qwen3 30B A3B (local)"; };
           "qwen3:4b" = { name = "Qwen3 4B (local)"; };
           "qwq:pro" = { name = "QwQ 32B (local)"; };
+          "gpt-oss:pro" = { name = "GPT OSS 20B (local)"; };
         };
       };
     };

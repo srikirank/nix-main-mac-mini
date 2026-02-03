@@ -50,6 +50,7 @@
         specialArgs = { inherit inputs; };
         modules = [
           ./hosts/darkstar/configuration.nix
+          ./hosts/darkstar/ollama.nix
           {
             # Speed up builds
             nix.settings = {

@@ -96,6 +96,8 @@
       $OLLAMA_BIN pull qwq:32b          # For deep reasoning/complex bug fixing
       $OLLAMA_BIN pull qwen3:4b         # For lightning-fast autocomplete
       $OLLAMA_BIN pull nomic-embed-text # Codebase indexing
+      $OLLAMA_BIN pull gpt-oss:20b      # General versatile Coder
+
       # To force a restart of the agent:
       # Use a variable to avoid SC2046 and ensure we target the real user, not root
       TARGET_USER="sri"
@@ -132,6 +134,7 @@
       # Bake your principal-engineer-grade models
       bake_model "qwen3:30b-a3b" "qwen3:pro"
       bake_model "qwq:32b" "qwq:pro"
+      bake_model "gpt-oss:20b" "gpt-oss:pro"
 
       # Install Mise Tools
       /run/current-system/sw/bin/mise bin-paths

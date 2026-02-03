@@ -41,5 +41,7 @@
     ./wallpaper.nix
     ./karabiner.nix
     ./ghostty.nix
+    ./opencode.nix
+    ./docker-config.nix
   ];
 }
