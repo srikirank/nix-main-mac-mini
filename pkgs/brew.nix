@@ -12,19 +12,23 @@
     "maven"
     "gemini-cli"
     "opencode"
-    "ollama"
     "docker"
     "typescript"
   ];
 
   casks = [
     # Working casks
-    "claude"
+    "claude-code"
+    "github"
+    "cursor"
+    "hyperwhisper"
+    "contexts"
     "ghostty@tip"
     "handbrake-app"
     "istat-menus"
     "linear-linear"
     "raycast"
+    "warp"
     "sublime-text"
     "spotify"
     "vlc"
@@ -68,7 +72,6 @@
     "flighty" = 1358823008;
     "infuse" = 1136220934;
     "whatsapp" = 310633997;
-    "copilot" = 1447330651;
 
     # iPad Apps
 #    "adblock" = 691121579;

@@ -98,14 +98,14 @@
 
     # Activate zoxide
     mkdir ~/.cache
-    if not ("/Users/sri/.cache/zoxide.nu" | path exists) {
+    if not ("/Users/kiran/.cache/zoxide.nu" | path exists) {
       /run/current-system/sw/bin/zoxide init nushell --cmd=cd | save ~/.cache/zoxide.nu
     }
     source ~/.cache/zoxide.nu
 
     # Activate atuin
     mkdir ~/.cache/atuin
-    if not ("/Users/sri/.cache/atuin/init.nu" | path exists) {
+    if not ("/Users/kiran/.cache/atuin/init.nu" | path exists) {
       /run/current-system/sw/bin/atuin init nu | save ~/.cache/atuin/init.nu
     }
     load-env { DOTNET_ROOT: $"($env.HOME)/.local/share/mise/installs/dotnet/8" }
@@ -160,7 +160,7 @@
     CARAPACE_BRIDGES = "argcomplete,inshellisense,cobra,click,urfavecli,yargs,kingpin,carapace";
     CARAPACE_MATCH = 1;
     SKIM_DEFAULT_OPTIONS = "-i --ansi --delimiter ':' --cmd-prompt ' ' --preview 'bat --style=numbers,header,grid,changes --color=always --highlight-line {2} {1}' --preview-window +{2}-/2 -c \"rg {} --line-number --colors 'path:style:intense' --colors 'match:style:intense' --colors 'line:style:intense' --smart-case --hidden --color=always --glob '!.git'\"";
-    JAVA_HOME = "/Users/sri/.local/share/mise/installs/java/corretto-21.0.10.7.1/Contents/Home";
+    JAVA_HOME = "/Users/kiran/.local/share/mise/installs/java/corretto-21.0.10.7.1/Contents/Home";
     OPENCODE_NO_PARENT_CONFIG = "true";
     NIXPKGS_ALLOW_UNFREE = 1;
   };

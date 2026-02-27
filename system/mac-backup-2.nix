@@ -109,15 +109,15 @@
       "/System/Applications/System Settings.app"
 
 #      # Web Apps (created from websites)
-#      "/Users/sri/Applications/RUAK Investments.app"
-#      "/Users/sri/Applications/Real Estate Investing.app"
-#      "/Users/sri/Applications/Stock Sales - Tracking 2.app"
-#      "/Users/sri/Applications/AI Studio.app"
-#      "/Users/sri/Applications/ChatGPT- Diagrams - Show Me.app"
-#      "/Users/sri/Applications/Udemy - Docker Mastery with Kubernetes + Swarm.app"
-#      "/Users/sri/Applications/Udemy - Mastering Visual Studio Code 2024.app"
-#      "/Users/sri/Applications/Funds and Allocation.app"
-#      "/Users/sri/Applications/TMobile Billing.app"
+#      "/Users/kiran/Applications/RUAK Investments.app"
+#      "/Users/kiran/Applications/Real Estate Investing.app"
+#      "/Users/kiran/Applications/Stock Sales - Tracking 2.app"
+#      "/Users/kiran/Applications/AI Studio.app"
+#      "/Users/kiran/Applications/ChatGPT- Diagrams - Show Me.app"
+#      "/Users/kiran/Applications/Udemy - Docker Mastery with Kubernetes + Swarm.app"
+#      "/Users/kiran/Applications/Udemy - Mastering Visual Studio Code 2024.app"
+#      "/Users/kiran/Applications/Funds and Allocation.app"
+#      "/Users/kiran/Applications/TMobile Billing.app"
     ];
     persistent-others = [];
   };

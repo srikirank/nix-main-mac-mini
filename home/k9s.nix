@@ -3,7 +3,7 @@
   settings = {
     k9s = {
       liveViewAutoRefresh = true;
-      screenDumpDir = "/Users/sri/Library/Application Support/k9s/screen-dumps";
+      screenDumpDir = "/Users/kiran/Library/Application Support/k9s/screen-dumps";
       refreshRate = 2;
       maxConnRetry = 5;
       readOnly = false;

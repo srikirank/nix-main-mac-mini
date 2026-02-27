@@ -84,8 +84,7 @@ nix run nix-darwin --extra-experimental-features "nix-command flakes"  -- switch
 This will add `darwin-rebuild` to your path, so for further updates you can simply run:
 
 ```sh
-/run/current-system/sw/bin/darwin-rebuild switch --flake .#darkstar
-```
+n```
 
 > [!WARNING]
 > This command needs to be run from the root of this repo folder. Otherwise, you can provide the path to folder where you cloned this repo (path to _flake.nix_).

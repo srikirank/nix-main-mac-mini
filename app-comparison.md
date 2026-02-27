@@ -100,7 +100,6 @@ casks = [
   "devutils"
   "jetbrains-toolbox"
   "mongodb-realm-studio"
-  "ollama"
   "sf-symbols"
   "xcode"
   

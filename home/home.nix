@@ -1,8 +1,8 @@
 { pkgs, lib, inputs, ... }: {
 
   home = {
-    username = "sri";
-    homeDirectory = "/Users/sri";
+    username = "kiran";
+    homeDirectory = "/Users/kiran";
     stateVersion = "25.05";
     activation = import ./activation.nix { inherit pkgs lib inputs; };
     
@@ -41,7 +41,6 @@
     ./wallpaper.nix
     ./karabiner.nix
     ./ghostty.nix
-    ./opencode.nix
     ./docker-config.nix
   ];
 }

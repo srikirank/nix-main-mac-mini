@@ -60,7 +60,6 @@
         specialArgs = { inherit inputs pkgs; };
         modules = [
           ./hosts/darkstar/configuration.nix
-          ./hosts/darkstar/ollama.nix
           {
             nixpkgs.pkgs = pkgs;
             # Speed up builds
@@ -80,7 +79,7 @@
               useGlobalPkgs = true;
               useUserPackages = false;
               backupFileExtension = "bak";
-              users.sri = import ./home/home.nix;
+              users.kiran = import ./home/home.nix;
             };
           }
           nix-homebrew.darwinModules.nix-homebrew
@@ -88,7 +87,7 @@
             nix-homebrew = {
               enable = true;
               enableRosetta = true;
-              user = "sri";
+              user = "kiran";
             };
           }
         ];
