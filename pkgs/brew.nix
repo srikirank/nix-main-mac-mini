@@ -30,6 +30,7 @@
     "raycast"
     "warp"
     "sublime-text"
+    "postman"
     "spotify"
     "vlc"
     "lunar"
