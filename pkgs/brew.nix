@@ -14,6 +14,7 @@
     "opencode"
     "docker"
     "typescript"
+    "code-cli"
   ];
 
   casks = [
@@ -22,6 +23,7 @@
     "github"
     "cursor"
     "hyperwhisper"
+    "visual-studio-code"
     "contexts"
     "ghostty@tip"
     "handbrake-app"
