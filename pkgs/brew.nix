@@ -15,6 +15,7 @@
     "docker"
     "typescript"
     "code-cli"
+    "cloudflare-wrangler"
   ];
 
   casks = [
@@ -26,6 +27,7 @@
     "visual-studio-code"
     "contexts"
     "ghostty@tip"
+    "freeyourmusic"
     "handbrake-app"
     "istat-menus"
     "linear-linear"

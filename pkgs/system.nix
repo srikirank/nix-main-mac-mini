@@ -80,7 +80,6 @@
   tmuxifier
   tree
   vim
-  vscode
   which
   yazi
   yq
