@@ -16,12 +16,16 @@
     "typescript"
     "code-cli"
     "cloudflare-wrangler"
+    "wakeonlan"
   ];
 
   casks = [
     # Working casks
     "claude-code"
     "github"
+    "microsoft-onenote"
+    "microsoft-teams"
+    "microsoft-outlook"
     "cursor"
     "hyperwhisper"
     "visual-studio-code"

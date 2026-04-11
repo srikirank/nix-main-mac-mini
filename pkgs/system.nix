@@ -74,7 +74,6 @@
   skim
   starship
   stow
-  teams
   tig
   tmux
   tmuxifier
